@@ -4,14 +4,15 @@ import 'package:flutter_cart/flutter_cart.dart';
 
 class cartController extends GetxController{
   var cart = FlutterCart().obs;
-  void addToCart(Product product, String size) {
+  void addToCart(Product product, String size, String quantity) {
     cart.value.addToCart(
       cartModel: CartModel(
           productId: product.productId.toString(),
           productName: product.title,
           productImages: [
-            product.itemImage.url
+            product.productImage
           ],
+          quantity: int.parse(quantity),
           variants: [
             ProductVariant(price: product.price, size: size),
 
@@ -31,7 +32,7 @@ class cartController extends GetxController{
     cart.value.removeItem(modelItem.productId.toString(), modelItem.variants);
     cart.refresh();
   }
-  int get getCartCount => cart.value.cartLength;
+  int get getCartCount => cart.value.cartItemsList.length;
   List<CartModel> get getCartItems => cart.value.cartItemsList;
   double get getTotalAmount => cart.value.total;
   double get subtotal => cart.value.subtotal;

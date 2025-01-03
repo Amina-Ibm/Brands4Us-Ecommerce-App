@@ -1,4 +1,6 @@
 import 'package:elo_clone/main.dart';
+import 'package:elo_clone/widgets/loginLoader.dart';
+import 'package:elo_clone/views/loginView.dart';
 import 'package:elo_clone/views/productListPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cart/flutter_cart.dart';
@@ -16,7 +18,8 @@ class OnBoardingPage extends StatefulWidget {
 class OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
   void _onIntroEnd() {
-    Get.off(productListpage(cart: widget.cart,));
+    Get.off(LoginLoader(cart: widget.cart));
+
   }
 
 
@@ -75,7 +78,6 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       skipOrBackFlex: 0,
       nextFlex: 0,
       showBackButton: false,
-      //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
       skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
       next: const Icon(Icons.arrow_forward),

@@ -1,7 +1,11 @@
 import 'package:elo_clone/main.dart';
+import 'package:elo_clone/views/loginView.dart';
+import 'package:elo_clone/views/mainPage.dart';
 import 'package:elo_clone/views/productListPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cart/cart.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class OrderConfirmPage extends StatelessWidget {
   @override
@@ -17,11 +21,14 @@ class OrderConfirmPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.check_circle,
-                color: Colors.green,
-                size: 100,
+              Lottie.asset(
+                'assets/order_confirm.json',
+                height: 200.0,
+                repeat: true,
+                reverse: true,
+                animate: true,
               ),
+
               const SizedBox(height: 20),
               const Text(
                 "Thank you for your purchase!",
@@ -40,7 +47,9 @@ class OrderConfirmPage extends StatelessWidget {
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
-                  Get.to(MainApp);
+                  final FlutterCart cart = FlutterCart();
+                  cart.initializeCart(isPersistenceSupportEnabled: true);
+                  Get.off( () => MainPage(cart: cart));
                 },
                 child: const Text("Continue Shopping"),
               ),

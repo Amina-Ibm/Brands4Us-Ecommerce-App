@@ -7,14 +7,20 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
+  anim_search_bar: ^2.0.3
+  choice: ^2.3.2
+  custom_rating_bar: ^3.0.0
   flutter:
     sdk: flutter
   flutter_cart: ^0.0.9
   flutter_native_splash: ^2.4.3
   get: ^4.6.6
+  hexcolor: ^3.0.1
   http: ^1.2.2
   introduction_screen: ^3.1.14
+  lottie: ^3.2.0
   path_provider: ^2.1.5
+  shared_preferences: ^2.3.4
   sqflite: ^2.4.1
   toastification: ^2.3.0
 
@@ -35,3 +41,13 @@ flutter:
     - assets/ecommerce1.png
     - assets/ecommerce2.png
     - assets/ecommerce3.png
+    - assets/background-img.jpg
+    - assets/no_items_cart.json
+    - assets/order_confirm.json
+    - assets/no-search-item.json
+    - assets/men's clothing.png
+    - assets/category-all.png
+    - assets/women's clothing.png
+    - assets/electronics.png
+    - assets/jewelery.png
+
